@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 
 const pathsToClean = ["dist"];
@@ -48,6 +49,7 @@ module.exports = {
       filename: "./index.html",
       title: "Babylon.js hands on ",
       template: "./templates/index.ejs"
-    })
+    }),
+    new CopyWebpackPlugin([{ from: "assets", to: "assets" }])
   ]
 };
